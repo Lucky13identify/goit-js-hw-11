@@ -1,11 +1,16 @@
+* {
+  box-sizing: border-box;
+}
 img {
   display: block;
-  max-width: 100%;
 }
-a {
-  display: flex;
-  justify-content: center;
+
+.img-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 b {
   font-size: 15px;
 }
@@ -17,39 +22,62 @@ input {
   border-color: transparent;
 }
 
+div {
+  display: block;
+}
+
+button {
+  margin-left: 5px;
+  border-radius: 12px;
+  width: 100px;
+  height: 40px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  color: #fff;
+  background-color: #2196f3;
+  border-color: transparent;
+
+  cursor: pointer;
+}
+
 .info {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
+
 .info-item {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-
   align-items: center;
+  gap: 5px;
 }
+
 .search-form {
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: center;
-  background-color: blueviolet;
   padding-top: 20px;
   padding-bottom: 20px;
 
+  background-color: blueviolet;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-/* gallery container */
 
 .gallery {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
   gap: 20px;
   margin-top: 20px;
 }
-
-/* visually-hidden */
 
 .visually-hidden {
   position: absolute;
@@ -63,23 +91,9 @@ input {
   clip-path: inset(50%);
   margin: -1px;
 }
-button {
-  background-color: #2196f3;
-  border-radius: 12px;
-  border-color: transparent;
-
-  width: 100px;
-  height: 40px;
-  margin-left: 5px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  color: #fff;
-  cursor: pointer;
-}
 
 .photo-card {
+  width: 300px;
   border-radius: 6px;
   background-color: rgb(222, 222, 222);
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
@@ -96,7 +110,12 @@ button {
   align-items: center;
   margin-top: 20px;
 }
+
 .load-more {
   width: 300px;
   height: 40px;
+}
+
+.thumb {
+  height: 200px;
 }
