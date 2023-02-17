@@ -8,7 +8,6 @@ import { foreverScroll } from './js/foreverScroll';
 // doodle
 
 // Simplelightbox
-// comment
 
 const buttonMore = document.querySelector('.load-more');
 const form = document.querySelector('form');

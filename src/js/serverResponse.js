@@ -16,7 +16,7 @@ export async function toGetResponse(name, click) {
       `${LINK_KEY}&q=${name}&image_type=photo&orientation=horizontal&safesearch=true&page=${click}&per_page=40`
     );
 
-    if (response.data.hits.length === 0) {
+    if (response.data.hits.length === 0 && response.data.total === 0) {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );

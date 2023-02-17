@@ -45,15 +45,9 @@ export async function createMarkup(place) {
     autoscroll();
   }
 
-  // if (promiseFoo.hits.length === 0 && page >= 2) {
-  //   return Notiflix.Notify.info(
-  //     "We're sorry, but you've reached the end of search results."
-  //   );
-  // }
-  const buttonMore = document.querySelector('.load-more');
-
   // **** You could unlock it for button loading (also html and createMarkup.js too) ****
 
+  // const buttonMore = document.querySelector('.load-more');
   // const showButton = await buttonMore.classList.remove('visually-hidden');
   return markup;
 }

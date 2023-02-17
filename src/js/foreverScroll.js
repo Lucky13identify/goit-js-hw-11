@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { createMarkup } from './createMarkup';
 
 export function foreverScroll() {
@@ -6,8 +7,13 @@ export function foreverScroll() {
 
   if (doc.bottom < user + 1) {
     setTimeout(() => {
-      console.log('done');
-      createMarkup('beforeend');
+      createMarkup('beforeend').then(array => {
+        if (array.length === 0) {
+          return Notiflix.Notify.info(
+            "We're sorry, but you've reached the end of search results."
+          );
+        }
+      });
     }, 1000);
   }
 }
