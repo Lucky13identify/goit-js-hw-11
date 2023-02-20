@@ -20,7 +20,7 @@ export async function toGetResponse(name, click) {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
-    } else if (response.data.hits.length > 0 && page >= 1) {
+    } else if (response.data.hits.length > 0 && page === 2) {
       Notiflix.Notify.success(
         `Hooray! We found ${response.data.totalHits} images.`
       );

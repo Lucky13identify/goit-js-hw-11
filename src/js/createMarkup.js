@@ -1,4 +1,3 @@
-import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { page, toGetResponse } from './serverResponse';
@@ -8,8 +7,13 @@ export async function createMarkup(place) {
   const form = document.querySelector('form');
   const promiseFoo = await toGetResponse(form[0].value, page);
 
+  const gallery = document.querySelector('.gallery');
+
+  const lightbox = new SimpleLightbox('.gallery a', {});
+  lightbox.on('show.simplelightbox', function () {});
+
   const markup = await promiseFoo.hits.map(item => {
-    const gallery = document.querySelector('.gallery');
+    lightbox.refresh();
     return gallery.insertAdjacentHTML(
       `${place}`,
       `<div class="photo-card">
@@ -51,6 +55,3 @@ export async function createMarkup(place) {
   // const showButton = await buttonMore.classList.remove('visually-hidden');
   return markup;
 }
-
-const lightbox = new SimpleLightbox('.gallery a', {});
-lightbox.on('show.simplelightbox', function () {});

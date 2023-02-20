@@ -1,13 +1,8 @@
-import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import './css/styles.css';
 
 import { createMarkup } from './js/createMarkup';
 import { foreverScroll } from './js/foreverScroll';
-
-// doodle
-
-// Simplelightbox
 
 const buttonMore = document.querySelector('.load-more');
 const form = document.querySelector('form');
@@ -34,6 +29,3 @@ form.addEventListener('submit', e => {
 // });
 
 // buttonMore.classList.add('visually-hidden');
-
-const lightbox = new SimpleLightbox('.gallery a', {});
-lightbox.on('show.simplelightbox', function () {});
