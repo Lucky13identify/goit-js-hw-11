@@ -1,9 +1,9 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { page, toGetResponse } from './serverResponse';
+import { toGetResponse } from './serverResponse';
 import { autoscroll } from './autoscroll';
 
-export async function createMarkup(place) {
+export async function createMarkup(place, page) {
   const form = document.querySelector('form');
   const promiseFoo = await toGetResponse(form[0].value, page);
 
@@ -11,9 +11,8 @@ export async function createMarkup(place) {
 
   const lightbox = new SimpleLightbox('.gallery a', {});
   lightbox.on('show.simplelightbox', function () {});
-
+  lightbox.refresh();
   const markup = await promiseFoo.hits.map(item => {
-    lightbox.refresh();
     return gallery.insertAdjacentHTML(
       `${place}`,
       `<div class="photo-card">
@@ -45,7 +44,7 @@ export async function createMarkup(place) {
     );
   });
 
-  if (page >= 3) {
+  if (page >= 2) {
     autoscroll();
   }
 

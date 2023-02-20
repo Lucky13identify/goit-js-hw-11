@@ -1,14 +1,10 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
-export let page = 1;
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export async function toGetResponse(name, click) {
   try {
-    page += 1;
-
     const LINK_KEY =
       'https://pixabay.com/api/?key=33641597-af0dded98b621629426cb08e5';
 
@@ -20,7 +16,7 @@ export async function toGetResponse(name, click) {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
-    } else if (response.data.hits.length > 0 && page === 2) {
+    } else if (response.data.hits.length > 0 && click === 1) {
       Notiflix.Notify.success(
         `Hooray! We found ${response.data.totalHits} images.`
       );
@@ -31,5 +27,3 @@ export async function toGetResponse(name, click) {
     console.error(error);
   }
 }
-const lightbox = new SimpleLightbox('.gallery a', {});
-lightbox.on('show.simplelightbox', function () {});
